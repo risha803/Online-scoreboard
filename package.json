@@ -1,0 +1,26 @@
+{
+  "name": "online-scoreboard",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/risha803/Online-scoreboard.git"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/risha803/Online-scoreboard/issues"
+  },
+  "homepage": "https://github.com/risha803/Online-scoreboard#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "luxon": "^3.6.1"
+  }
+}
