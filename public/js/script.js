@@ -26,24 +26,46 @@ const renderBusData = (buses) => {
 
   buses.forEach(bus => {
     const row = document.createElement('tr');
-
     const nextDepartureDateTimeUTC = new Date(`${bus.nextDeparture.date}T${bus.nextDeparture.time}Z`);
-    console.log(nextDepartureDateTimeUTC);
 
     row.innerHTML = `
     <td>${bus.busNumber}</td>
     <td>${bus.startPoint} - ${bus.endPoint}</td>
     <td>${formatDate(nextDepartureDateTimeUTC)}</td>
     <td>${formatTime(nextDepartureDateTimeUTC)}</td>
+    <td>${bus.nextDeparture.remaining}</td>
     `
 
     tableBody.append(row);
   })
 };
 
+const initWebSocket = () => {
+  const ws = new WebSocket(`ws://${location.host}`);
+
+  ws.addEventListener('open', () => {
+    console.log('websocket connection');
+  });
+
+  ws.addEventListener('message', (event) => {
+    const buses = JSON.parse(event.data);
+    renderBusData(buses);
+  });
+
+  ws.addEventListener('error', (error) => {
+    console.log(`websocket connection: ${error}`);
+  });
+
+  ws.addEventListener('close', (error) => {
+    console.log(`websocket connection close`);
+  });
+};
+
 const init = async () => {
   const buses = await fetchBusData();
   renderBusData(buses);
+
+  initWebSocket();
 };
 
 init();
