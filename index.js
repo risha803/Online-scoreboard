@@ -7,7 +7,7 @@ import { WebSocketServer } from 'ws';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const port = 3000;
+const port = 8080;
 
 const timeZone = "UTC";
 

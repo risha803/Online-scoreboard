@@ -19,10 +19,11 @@
     "url": "https://github.com/risha803/Online-scoreboard/issues"
   },
   "homepage": "https://github.com/risha803/Online-scoreboard#readme",
-  "description": "",
   "dependencies": {
     "express": "^5.1.0",
-    "luxon": "^3.6.1"
-     "ws": "^8.18.1"
-  }
+    "luxon": "^3.6.1",
+    "ws": "^8.18.1"
+  },
+  "devDependencies": {},
+  "description": ""
 }
